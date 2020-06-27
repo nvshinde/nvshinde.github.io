@@ -19,10 +19,6 @@ h2{
       z-index: 10;
       height: -20px;
 }
-#navigation .navbar-brand img{
-      height: 30px;
-      padding-left: 30px; 
-}
 #navigation .navbar-nav li{
       padding: 0 10px;
 }
@@ -30,17 +26,12 @@ h2{
       float: right;
       text-align: left;
 }
-#navigation ul li a:hover{
-      color: #ffffff!important;
-      font-weight: bold;
-}
 #navigation .navbar{
-      background: black;
+     
 }
-/*#navigation .navbar-toggler{
+#navigation .navbar-toggler{
       border: none;
-
-}*/
+}
 #navigation .nav-link{
       color:white!important;
       font-weight: 500;
@@ -107,7 +98,7 @@ h2{
 }
 /*--projects--*/
 #projects .container{
-      height: 100vh;
+      height: auto;
       text-align: center;
       width: 100%;
       display: flex;
@@ -127,11 +118,3 @@ h2{
       margin-bottom: 30px;
       cursor: pointer;
 }
-
-
-
-/*--*/
-
-/*--*/
-
-/*--*/
