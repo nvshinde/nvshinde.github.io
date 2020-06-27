@@ -73,7 +73,6 @@ h2{
       justify-content: center;
       flex-direction: column;
 }
-
 #home h1{
       font-size: 50px;
       font-weight: 700;
@@ -89,7 +88,6 @@ h2{
       text-transform: uppercase;
       color: #ffffff ;
 }
-
 #home h3{
       font-size: 30px;
       letter-spacing: 0.1em;
@@ -99,22 +97,22 @@ h2{
       color: #ffffff;
       font-weight: 500;
 }
-
 #home .social{
       float: left;
 }
-
 #home .social .fa{
       color: #ffffff;
       font-size: 30px;
       margin-right: 30px;
 }
-
 /*--projects--*/
-
 #projects .container{
-      margin-top: 0px;
-      margin-bottom: 0px;
+      height: 100vh;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
 }
 
 #projects h2{
