@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Georgia, serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.page {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.header {
+    font-size: 24px;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+}
+
+.address {
+    margin-top: 8px;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.section-title {
+    margin: 16px 0 4px;
+    font-weight: bold;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+.link-list {
+    text-align: left;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.link-list a {
+    text-decoration: none;
+    color: #0000ee;
+}
+
+.link-list a:visited {
+    color: #551a8b;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+.two-column {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.left-col {
+    width: 50%;
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: center;
+    /* centers the column contents as a whole */
+}
+
+.left-col .section-title {
+    text-align: center;
+    /* keep section titles centered */
+}
+
+.left-col a {
+    display: block;
+    text-align: left;
+    /* left align the links */
+    margin-left: auto;
+    /* keeps the link list centered */
+    margin-right: auto;
+    max-width: 200px;
+    /* optional: keeps a nice narrow alignment */
+}
+
+
+.right-col {
+    width: 50%;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: justify;
+    /* Justify text in right column */
+}
+
+.right-col h3 {
+    text-align: left;
+    /* Headings left aligned for clean look */
+}
+
+
+.profile-photo {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto 16px auto;
+}
+
+.itemized {
+    padding-left: 18px;
+    margin-top: 8px;
+}
