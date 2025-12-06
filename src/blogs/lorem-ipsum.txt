@@ -1,0 +1,4 @@
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel augue vulputate, porttitor odio ut, mollis nunc. Praesent pretium, justo ut dictum consequat, ipsum lorem tincidunt lectus, nec viverra lacus est a justo. Nam ut tincidunt risus. Aliquam eget ligula id libero venenatis sagittis. Sed sodales lorem vel erat tristique, eu egestas urna tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque fringilla sem, vel tincidunt velit pellentesque sed. Suspendisse ullamcorper dui eget maximus laoreet. Sed id sem tincidunt, ultricies mauris in, porta tellus. Curabitur tincidunt vestibulum sem, sit amet consequat lectus placerat vel. Suspendisse in enim sem. Maecenas vel eros at sem hendrerit facilisis. Fusce eget molestie est, et sollicitudin enim.
+
+Image example; html in text file.
+<p><img src="../img/face.JPG" alt="example-image" style="max-width:100%; border-radius:8px;"></p>

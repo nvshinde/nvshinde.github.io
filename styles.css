@@ -1,6 +1,14 @@
+html {
+    scrollbar-gutter: stable;
+}
+
+html {
+    overflow-y: scroll;
+}
+
 body {
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding: 10px;
     font-family: "Times New Roman", Georgia, serif;
     background-color: #ffffff;
     color: #000000;
@@ -8,7 +16,7 @@ body {
 
 .page {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 10px auto;
     text-align: center;
 }
 
@@ -18,9 +26,15 @@ body {
     font-weight: bold;
 }
 
+.sub-header {
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+}
+
 .address {
     margin-top: 8px;
-    line-height: 1.4;
+    line-height: 1.2;
     font-size: 14px;
 }
 
@@ -37,7 +51,7 @@ hr {
     text-align: left;
     display: inline-block;
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
 .link-list a {
@@ -52,7 +66,7 @@ hr {
 .footer-text {
     margin-top: 20px;
     font-size: 12px;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 .copyright {
@@ -82,34 +96,27 @@ hr {
 
 .left-col a {
     display: block;
-    text-align: left;
-    /* left align the links */
+    text-align: center;
     margin-left: auto;
-    /* keeps the link list centered */
     margin-right: auto;
-    max-width: 200px;
-    /* optional: keeps a nice narrow alignment */
+    max-width: 300px;
 }
-
 
 .right-col {
     width: 50%;
     font-size: 15px;
     line-height: 1.5;
     text-align: justify;
-    /* Justify text in right column */
 }
 
 .right-col .section-title {
     text-align: center;
-    /* Headings left aligned for clean look */
 }
-
 
 .profile-photo {
     width: 100%;
-    max-width: 220px;
-    border-radius: 6px;
+    max-width: 120px;
+    border-radius: 10px;
     display: block;
     margin: 0 auto 16px auto;
 }
@@ -117,4 +124,9 @@ hr {
 .itemized {
     padding-left: 18px;
     margin-top: 8px;
+}
+
+.itemized li p {
+    margin-left: 20px;   /* adjust as needed */
+    text-indent: 0;
 }

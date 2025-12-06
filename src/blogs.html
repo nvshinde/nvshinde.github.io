@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nikhil Shinde</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">N I K H I L&nbsp;&nbsp;S H I N D E</div>
+        <div class="address">
+            India<br>
+            Official Home Page
+        </div>
+
+        <hr>
+        <div class="sub-header">B L O G S</div>
+        <hr>
+
+        <div class="two-column">
+            <ul class="itemized" id="blogs-list">
+                <!-- Blogs will be injected here -->
+            </ul>
+        </div>
+
+        <hr> 
+        <a href="../index.html">H O M E</a><br>
+        <hr>
+
+        <div class="footer-text">
+            See you soon with more updates!
+        </div>
+
+        <div class="copyright">
+            Content copyright © 2025 - Nikhil Shinde.<br>
+            Design is inspired from Berkshire Hathaway's website.
+        </div>
+    </div>
+
+    <script>
+        // Describe all your blogs here
+        const posts = [
+            { slug: 'lorem-ipsum', title: 'Blog 1 – Lorem ipsum' },
+            // Add more as you create them:
+            // { slug: 'first-day-at-iitm', title: 'Blog 2 – First day at IITM' },
+            // { slug: 'research-update-jan-2026', title: 'Blog 3 – Research update (Jan 2026)' },
+        ];
+
+        const list = document.getElementById('blogs-list');
+
+        posts.forEach(post => {
+            const li = document.createElement('li');
+
+            // details/summary for dropdown behavior
+            li.innerHTML = `
+                <details data-loaded="false" data-slug="${post.slug}">
+                    <summary>${post.title}</summary>
+                    <div id="blog-${post.slug}" class="blog-content">
+                        (Click to load…)
+                    </div>
+                </details>
+            `;
+
+            list.appendChild(li);
+        });
+
+        // Lazy-load content when a blog is opened the first time
+        list.addEventListener('toggle', function (event) {
+            const details = event.target;
+            if (details.tagName.toLowerCase() !== 'details') return;
+
+            const isOpen = details.open;
+            const alreadyLoaded = details.getAttribute('data-loaded') === 'true';
+            const slug = details.getAttribute('data-slug');
+
+            if (!isOpen || alreadyLoaded) return;
+
+            const container = document.getElementById(`blog-${slug}`);
+
+            fetch(`./blogs/${slug}.txt`)
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    return response.text();
+                })
+                .then(text => {
+                    const html = text
+                        .trim()
+                        .split(/\n\s*\n/)      // blank line => new paragraph
+                        .map(p => `<p>${p}</p>`)
+                        .join('');
+
+                    container.innerHTML = html;
+                    details.setAttribute('data-loaded', 'true');
+                })
+                .catch(err => {
+                    container.textContent = '(Error loading blog)';
+                    console.error('Error loading', slug, err);
+                });
+        }, true);
+    </script>
+</body>
+
+</html>
