@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Encrypt Journal</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 20px auto; }
+    textarea { width: 100%; height: 200px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Encrypt content</h1>
+  <p>Write your content text below, enter a password, and click Encrypt. Copy the ciphertext into <code>src/journal.enc</code>.</p>
+
+  <h3>Journal Text</h3>
+  <textarea id="plain"></textarea>
+
+  <h3>Password</h3>
+  <input id="password" type="password" style="width: 100%;">
+
+  <br><br>
+  <button onclick="encrypt()">Encrypt</button>
+
+  <h3>Encrypted Output (ciphertext)</h3>
+  <pre id="output"></pre>
+
+  <script>
+    function encrypt() {
+      const text = document.getElementById('plain').value;
+      const pass = document.getElementById('password').value;
+
+      if (!text || !pass) {
+        alert('Please enter both text and password.');
+        return;
+      }
+
+      const ciphertext = CryptoJS.AES.encrypt(text, pass).toString();
+      document.getElementById('output').textContent = ciphertext;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nikhil Shinde – Journal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- CryptoJS from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">N I K H I L&nbsp;&nbsp;S H I N D E</div>
+    <div class="address">
+      India<br>
+      Official Home Page
+    </div>
+
+    <hr>
+    <div class="sub-header">T O D O</div>
+    <hr>
+
+    <div class="two-column">
+      <div class="left-col">
+        <div class="section-title">Private Todo</div>
+        <p>
+          This todo is lightly protected and intended only for personal use.
+        </p>
+        <p>
+          Enter password to view the content.
+        </p>
+
+        <div>
+          <input
+            id="journal-password"
+            type="password"
+            placeholder="Enter password"
+            style="width: 100%; max-width: 300px; padding: 4px; margin: 8px 0;"
+          >
+          <br>
+          <button onclick="loadJournal()" style="padding: 4px 12px;">Unlock</button>
+        </div>
+
+        <p id="journal-status" style="font-size: 13px; margin-top: 8px;"></p>
+      </div>
+
+      <div class="right-col">
+        <div class="section-title">Content</div>
+        <div id="journal-content" style="text-align: left; white-space: pre-wrap;">
+          <!-- Decrypted content will appear here -->
+        </div>
+      </div>
+    </div>
+
+    <hr><hr>
+
+    <div class="footer-text">
+      See you soon with more updates!
+    </div>
+
+    <div class="copyright">
+      Content copyright © 2025 - Nikhil Shinde.<br>
+      Design is inspired from Berkshire Hathaway's website.
+    </div>
+  </div>
+
+  <script>
+    let cachedCiphertext = null;
+
+    async function fetchCiphertext() {
+      if (cachedCiphertext !== null) return cachedCiphertext;
+
+      const res = await fetch('./todo.enc');
+      if (!res.ok) {
+        throw new Error('Failed to fetch journal.enc: HTTP ' + res.status);
+      }
+      cachedCiphertext = (await res.text()).trim();
+      return cachedCiphertext;
+    }
+
+    async function loadJournal() {
+      const pass = document.getElementById('journal-password').value;
+      const statusEl = document.getElementById('journal-status');
+      const contentEl = document.getElementById('journal-content');
+
+      statusEl.textContent = 'Decrypting...';
+      contentEl.textContent = '';
+
+      if (!pass) {
+        statusEl.textContent = 'Please enter a password.';
+        return;
+      }
+
+      try {
+        const ciphertext = await fetchCiphertext();
+        const bytes = CryptoJS.AES.decrypt(ciphertext, pass);
+        const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+
+        if (!decrypted) {
+          statusEl.textContent = 'Incorrect password.';
+          return;
+        }
+
+        // Optional: convert blank-line-separated text into <p> paragraphs
+        const html = decrypted
+          .trim()
+          .split(/\n\s*\n/)          // split on blank lines
+          .map(p => `<p>${p}</p>`)
+          .join('');
+
+        contentEl.innerHTML = html;
+        statusEl.textContent = 'Unlocked.';
+      } catch (e) {
+        console.error(e);
+        statusEl.textContent = 'Error decrypting journal.';
+      }
+    }
+  </script>
+</body>
+</html>
