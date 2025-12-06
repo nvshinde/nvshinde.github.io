@@ -70,8 +70,8 @@ hr {
 .left-col {
     width: 50%;
     font-size: 15px;
-    line-height: 1.7;
-    text-align: center;
+    line-height: 1.5;
+    text-align: justify;
     /* centers the column contents as a whole */
 }
 
@@ -95,13 +95,13 @@ hr {
 .right-col {
     width: 50%;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.5;
     text-align: justify;
     /* Justify text in right column */
 }
 
-.right-col h3 {
-    text-align: left;
+.right-col .section-title {
+    text-align: center;
     /* Headings left aligned for clean look */
 }
 
