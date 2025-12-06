@@ -130,3 +130,13 @@ hr {
     margin-left: 20px;   /* adjust as needed */
     text-indent: 0;
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    pointer-events: none;     /* don’t block clicks */
+    z-index: 9999;
+    background: rgba(179, 128, 20, 0.24); /* transparent warm yellow */
+    mix-blend-mode: multiply; /* blends with page content */
+}
