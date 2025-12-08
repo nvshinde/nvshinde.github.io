@@ -94,7 +94,7 @@ hr {
     /* keep section titles centered */
 }
 
-.left-col a {
+.left-col .custom_link a{
     display: block;
     text-align: center;
     margin-left: auto;
